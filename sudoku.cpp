@@ -30,8 +30,8 @@ bool canPlace9x9(int arr[9][9], int row, int col, int n)
     if (arr[row][col] != 0)
         return false;
     bool status = true;
-    int gridx = (col / 3) * 3;
-    int gridy = (row / 3) * 3;
+    int gridx = (row / 3) * 3;
+    int gridy = (col / 3) * 3;
     for (int i = 0; i < 9; i++)
     {
         if (arr[row][i] == n)
@@ -44,7 +44,7 @@ bool canPlace9x9(int arr[9][9], int row, int col, int n)
             status = false;
             break;
         }
-        if (arr[gridy + i / 3][gridx + i % 3] == n)
+        if (arr[gridx + i / 3][gridy + i % 3] == n)
         {
             status = false;
             break;
